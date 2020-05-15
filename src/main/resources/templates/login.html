@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorator="~{layout/Layout}">
+
+
+
+<div layout:fragment="content">
+	<div class="signup-form">
+		<form th:action="@{/login}" method="POST">
+			<h2>Login</h2>
+			<p>Faça login na sua conta</p>
+						
+
+			<div class="alert  alert-danger  alert-dismissible" role="alert" th:if="${#bools.isTrue(param.error)}">
+			<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+				O usuário e/ou senha não conferem
+			</div>
+
+			<div class="alert  alert-success  alert-dismissible" role="alert"
+				th:if="${not #strings.isEmpty(mensagem)}">
+				<button type="button" class="close" data-dismiss="alert">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<span th:text="${mensagem}"></span>
+			</div>
+			
+			<div class="aw-simple-panel__box">
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-user"></i></span>
+						<input type="text" class="form-control input-lg" name="username"
+							placeholder="Seu usuário" autofocus="autofocus"
+							required="required">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+						<input type="password" class="form-control  input-lg"
+							placeholder="Sua senha" name="password" required="required">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary btn-lg">Entrar</button>
+				</div>
+
+				<div class="modal-footer">
+					<a class="btn btn-primary pull-left" 
+						 th:href="@{/usuario/cadastrar}" style="color:white; text-decoration: none">Cadastrar</a>
+					<p>
+						Esqueceu 
+						<!-- Links -->
+						<a data-toggle="modal" href="#modalSenha">sua senha?</a>
+					</p>
+				</div>
+			</div>
+		</form>
+</div>
+
+	</div>
+</html>

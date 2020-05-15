@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorator="~{layout/Layout}">
+
+
+
+<div layout:fragment="content">
+	<div class="signup-form">
+
+		<form th:action="@{/usuario/recuperarSenha}" method="POST"  >	
+					<div class="modal-body">
+						
+						       <div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+								<input type="email" class="form-control" id="srm" name="srm"
+									placeholder="Digite seu email" required="required">
+							</div>
+				       </div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">Recuperar
+							minha Senha</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Sair</button>
+					</div>
+				</form>
+</div>
+
+	</div>
+</html>
